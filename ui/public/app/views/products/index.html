@@ -1,0 +1,46 @@
+<!-- Jumbotron Header -->
+<div class="row text-center" ng-if="!loading">
+    <div class="col-lg-12">
+        <header ng-if="cart.products.length <= 0" class="jumbotron my-4">
+            <p >Your cart is empty, start adding some products to see it here</p>
+        </header>
+
+        <div ng-if="cart.products.length > 0">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="product in cart.products">
+                        <span class="badge badge-info">{{product.price}} AED</span>
+                    <img ng-src="{{product.picture}}" height="40" alt="">
+                    <span>
+                        {{product.name}}
+                    </span>
+                    <a href="#" class="btn btn-sm btn-danger" ng-click="removeFromCart(product.id)">Remove</a>
+                </li>
+            </ul>
+            <div class="text-left">
+                <span class="label label-info">Items in cart:  <b>{{cart.products.length}}</b></span>, &nbsp;
+                <span class="label label-info">Your total:  <b>{{cartTotal()}} AED</b></span>
+            </div>
+            
+        </div>
+        <p></p>
+    </div>
+    
+    <div class="col-lg-5 col-md-4 mb-4" ng-repeat="product in products">
+        <div class="card">
+            <img ng-src="{{product.picture}}" alt="" class="card-img-top">
+            <div class="card-body">
+                <p class="card-text">{{product.name}}</p>
+                <span class="badge badge-info">{{product.price}} AED</span>
+            </div>
+            <div class="card-footer">
+                <a href="#" ng-click="addToCart(product.id)" class="btn btn-primary" ng-if="!product.isInCart">Add to cart</a>
+                <a href="#" ng-click="removeFromCart(product.id)" class="btn btn-danger" ng-if="product.isInCart">Remove from cart</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<header ng-if="loading" class="jumbotron text-center my-4">
+    <h1>Loading...</h1>
+</header>

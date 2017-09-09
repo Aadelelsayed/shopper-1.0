@@ -1,0 +1,25 @@
+doctype html
+html(lang='en', ng-app="shopper")
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    title Shopper
+    link(href='/static/stylesheets/vendor/bootstrap.min.css', rel='stylesheet')
+    link(href='/static/stylesheets/vendor/theme.css', rel='stylesheet')
+    base(href='/')
+  body
+    // Page Content
+    .container
+
+      // Page Features
+      div(ng-view="")
+
+    script(type='text/javascript', src='/bower_components/angular/angular.min.js')
+    script(type='text/javascript', src='/bower_components/angular-route/angular-route.min.js')
+    script(type='text/javascript', src='/bower_components/ngstorage/ngStorage.min.js')
+    script(type='text/javascript', src='/static/app/app.js')
+    script(type='text/javascript', src='/static/app/services/product.service.js')
+    script(type='text/javascript', src='/static/app/services/cart.service.js')
+    script(type='text/javascript', src='/static/app/components/product.component.js')
+    script(type='text/javascript', src='/static/app/controllers/product.controller.js')
+
